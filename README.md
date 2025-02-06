@@ -12,10 +12,10 @@
 
 ## Endpoints
 - `POST /tickets` - Crear un ticket
-- `GET /tickets` - Obtener todos los tickets (paginados)
-- `GET /tickets/{id}` - Obtener un ticket por ID
-- `PUT /tickets/{id}` - Actualizar un ticket
-- `DELETE /tickets/{id}` - Eliminar un ticket
+- `GET /api/tickets?page=0&size=10` - Obtener todos los tickets (paginados)
+- `GET /api/tickets/{id}` - Obtener un ticket por ID
+- `PUT /api/tickets/{id}` - Actualizar un ticket por ID
+- `DELETE /api/tickets/{id}` - Eliminar un ticket por ID
 
 ##Swagger
 - http://localhost:8081/api/swagger-ui/index.html#/
@@ -36,7 +36,8 @@
        estatus
      }
    }
-2. Actualizar un ticket
+   
+2. Actualizar un ticket:
   ```graphql
   mutation {
     actualizarTicket(id: 1, usuario: "Juan", estatus: "cerrado") {
@@ -45,12 +46,14 @@
       estatus
     }
   }
-3. Eliminar un ticket
+
+3. Eliminar un ticket:
   ```graphql
   mutation {
     eliminarTicket(id: 1)
   }
-4. Obtener todos los Tickets
+
+4. Obtener todos los Tickets:
   ```graphql
   query{
   	getAllTickets(page:0, size:10) {
@@ -61,7 +64,8 @@
       fechaActualizacion
     }  
   }
-5. Obtener ticket por Id
+
+5. Obtener ticket por Id:
   ```graphql
   query { 
     getTicketById(id: 2){
