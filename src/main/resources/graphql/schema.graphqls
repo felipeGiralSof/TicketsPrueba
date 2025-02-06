@@ -1,0 +1,23 @@
+enum EstatusTicket {
+    ABIERTO
+    CERRADO
+}
+
+type TicketModel {
+    id: ID!
+    usuario: String!
+    estatus: EstatusTicket!
+    fechaCreacion: String!
+    fechaActualizacion: String!
+}
+
+type Query {
+    getTicketById(id: ID!): TicketModel
+    getAllTickets(page: Int!, size: Int!): [TicketModel]
+}
+
+type Mutation {
+    addTicket(usuario: String!, estatus: EstatusTicket!): TicketModel
+    updatedTicket(id: ID!, usuario: String!, estatus: EstatusTicket!): TicketModel
+    deleteTicket(id: ID!): Boolean
+}

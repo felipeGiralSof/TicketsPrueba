@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: tickets
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ticket_db
+    username: postgres
+    password: mysecretpassword
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  graphql:
+    graphiql:
+      enabled: true
+    schema:
+      locations: classpath:graphql/
+      file-extensions: .graphqls
+server:
+  port: 8081
+  servlet:
+    context-path: "/api"
